@@ -1,0 +1,38 @@
+<form [formGroup]="myForm">
+    <div class="form-group">
+      <label for="id">学生ID</label>
+      <input type="text" class="form-control" id="id" name="id" [formControl]='id'>
+    </div>
+    <div class="form-group">
+      <label for="objectName">姓名</label>
+      <input type="text" class="form-control" id="objectName" name="objectName" [formControl]='objectName'>
+    </div>
+    <div class="form-group">
+      <label for="Mark">密码</label>
+      <input type="text" class="form-control" id="pass" name="pass" [formControl]='Mark'>
+    </div>
+  </form>
+  <div>
+    <button type="button" class="btn btn-primary" (click)="search()">查询</button>
+    <button type="button" class="btn btn-success" (click)="add()">添加</button>
+    <button type="button" class="btn btn-danger" (click)="delete()">删除</button>
+    <button type="button" class="btn btn-warning" (click)="update()">修改</button>
+  </div>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">学生</th>
+        <th scope="col">姓名</th>
+        <th scope="col">密码</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let user of users$ | async; let i = index' (click)="select(user)">
+        <th scope="row">{{i}}</th>
+        <td>{{user.id}}</td>
+        <td>{{user.objectName}}</td>
+        <td>{{user.Mark}}</td>
+      </tr>
+    </tbody>
+  </table>
