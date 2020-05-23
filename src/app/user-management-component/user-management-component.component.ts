@@ -40,6 +40,7 @@ export class UserManagementComponentComponent implements OnInit {
 
   search() {
     if (this.id.value) {
+      console.log('abc');
       this.allusers$ = <Observable<Stu>>this.httpClient.get(this.baseUrl + 'allusers/' + this.id.value);
     } else {
       this.allusers$ = <Observable<Stu>>this.httpClient.get(this.baseUrl + 'allusers');
